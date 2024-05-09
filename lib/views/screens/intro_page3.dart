@@ -45,7 +45,7 @@ class TintroPage extends StatelessWidget {
                   AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
-                        'Welcome Dive into the world of wisdom and let the journey of inspiration begin. Remember, every quote is a new perspective. Enjoy your journey in our Quote App',
+                        'Donolik olamiga xush kelibsiz. Esingizda bo'lsin, har bir iqtibos yangi yo'l va yangi ilhom demakdir. Iqtibos ilovamizdagi sayohatingiz maroqli o'tsin!',
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(
                           fontSize: 20,
@@ -82,7 +82,7 @@ class TintroPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Continue',
+                      'Davom qilish',
                       style: TextStyle(
                           letterSpacing: 2,
                           fontWeight: FontWeight.w600,
