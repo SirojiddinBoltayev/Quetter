@@ -12,7 +12,7 @@ class DwonloadPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Downloaded Quotes',
+        title: const Text('Iqtiboslar yuklash',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
         leading: IconButton(
