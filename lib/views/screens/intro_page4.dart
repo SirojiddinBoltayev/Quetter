@@ -20,8 +20,8 @@ class FointroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserModal userModal = UserModal.init();
-    userModal.name = 'Tushal';
-    userModal.email = 'tushalgopani3@gmail.com';
+    userModal.name = 'Zebo';
+    userModal.email = 'zebo@gmail.com';
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -41,7 +41,7 @@ class FointroPage extends StatelessWidget {
             AnimatedTextKit(
               animatedTexts: [
                 TyperAnimatedText(
-                  'Hey, ${FBAuthHelper.fbAuthHelper.auth.currentUser?.displayName} \n Pick the representation that feels right for you ? ',
+                  'Salom, ${FBAuthHelper.fbAuthHelper.auth.currentUser?.displayName} \n O`zingizga mos keladigan bo`limlarni tanlang? ',
                   textAlign: TextAlign.center,
                   textStyle: const TextStyle(
                     fontSize: 20,
@@ -54,7 +54,7 @@ class FointroPage extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.020),
             Text(
-              'This information will be \n used to customize some quotes.',
+              'Bu ma`lumotlar sizning \n iqtiboslaringizni yartishda foydalaniladi!',
               style: TextStyle(
                 color: Colors.grey.withOpacity(0.5),
                 fontWeight: FontWeight.bold,
@@ -119,7 +119,7 @@ class FointroPage extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        'Continue',
+                                        'Davom qilish',
                                         style: TextStyle(
                                             letterSpacing: 2,
                                             fontWeight: FontWeight.w600,
