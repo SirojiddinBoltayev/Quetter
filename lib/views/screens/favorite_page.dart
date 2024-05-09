@@ -11,7 +11,7 @@ class FavoritesScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('Favorites',
+        title: Text('Sevimlilar',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         leading: IconButton(
           onPressed: () {
