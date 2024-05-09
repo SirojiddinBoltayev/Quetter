@@ -19,7 +19,7 @@ class PrefPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Contact Preferences",
+          "Aloqa sozlamalari",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -51,7 +51,7 @@ class PrefPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(bottom: 10),
                 child: Text(
-                  'Select your preferred contant type',
+                  'O'zingiz yoqtirgan kontent turini tanlang',
                   style: TextStyle(
                     color: Color(0xFF5E6C85),
                     fontSize: 20,
