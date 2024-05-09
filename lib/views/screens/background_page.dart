@@ -18,7 +18,7 @@ class BackgroundPage extends StatelessWidget {
         backgroundColor: Colors.black,
         appBar: AppBar(
           title: const Text(
-            "Background",
+            "Orqa foni",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           leading: IconButton(
@@ -81,7 +81,7 @@ class BackgroundPage extends StatelessWidget {
                           : Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Recently Purchased',
+                                const Text('Yaqinda sotib olingan',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
