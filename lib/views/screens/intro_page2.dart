@@ -51,7 +51,7 @@ class SIntroPage extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * 0.040),
                 Text(
-                  'Enter the Digital Canvas of Your Narrative: Every Tap, Every Answer Paints the Portrait of Your Journey. As We Navigate This Virtual Tapestry, What Name Shall We Engrave, What Chapter Shall We Unveil in Your Digital Saga?',
+                  'Hikoyalaringizni raqamli ko'rinishga o'tkazing: har bir o'zgarishingiz, har bir iqtibosingiz hayot yo'lingizni chizishda yordam beradi. Ushbu virtual sayohatda, qaysi nomni muhrlab yozamiz, sizning raqamli olamingizda qaysi bobni ochamiz?',
                   style: TextStyle(
                     color: Colors.grey.withOpacity(0.5),
                     fontWeight: FontWeight.bold,
@@ -200,7 +200,7 @@ class SIntroPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Continue',
+                            'Davom qilish',
                             style: TextStyle(
                                 letterSpacing: 2,
                                 fontWeight: FontWeight.w600,
@@ -224,7 +224,7 @@ class SIntroPage extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        ' OR ',
+                        ' Yoki ',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -269,7 +269,7 @@ class SIntroPage extends StatelessWidget {
                             ),
                             SizedBox(height: size.height * 0.010),
                             const Text(
-                              'Continue with Google',
+                              'Google orqali kiring',
                               style: TextStyle(
                                   letterSpacing: 2,
                                   fontWeight: FontWeight.bold,
