@@ -22,7 +22,7 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Settings",
+          "Sozlamalar",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -53,7 +53,7 @@ class SettingPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 8.0, bottom: 8),
                 child: Text(
-                  'Your Quotes',
+                  'Sizning iqtiboslaringiz',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -77,7 +77,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Content Preferences",
+                        "Kontent sozlamalari",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -101,7 +101,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Add Your Own Quote",
+                        "Iqtibos qo'shing",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -144,7 +144,7 @@ class SettingPage extends StatelessWidget {
                                       builder: (context) {
                                         return AlertDialog(
                                             title: Text(
-                                              'Congratulations'.toUpperCase(),
+                                              'Tabriklaymiz'.toUpperCase(),
                                               textAlign: TextAlign.center,
                                             ),
                                             titleTextStyle: const TextStyle(
@@ -210,7 +210,7 @@ class SettingPage extends StatelessWidget {
                                       builder: (context) {
                                         return AlertDialog(
                                             title: Text(
-                                              'Congratulations'.toUpperCase(),
+                                              'Tabriklaymiz'.toUpperCase(),
                                               textAlign: TextAlign.center,
                                             ),
                                             titleTextStyle: const TextStyle(
@@ -268,7 +268,7 @@ class SettingPage extends StatelessWidget {
                             });
                           },
                           title: const Text(
-                            "Earn Coins",
+                            "Coin ishlash",
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           trailing: const Icon(
@@ -290,7 +290,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Past Quotes",
+                        "Oxirgi iqtiboslar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -314,7 +314,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Favourites",
+                        "Sevimlilar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -339,7 +339,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Your Quotes",
+                        "Sizning iqtiboslaringiz",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -369,7 +369,7 @@ class SettingPage extends StatelessWidget {
                             type: PageTransitionType.fade));
                       },
                       title: const Text(
-                        "Dwonload Quotes",
+                        "Iqtiboslar yuklash",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       trailing: const Icon(
@@ -387,7 +387,7 @@ class SettingPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 8.0, bottom: 8),
                 child: Text(
-                  'Other',
+                  'Boshqalar',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -419,7 +419,7 @@ class SettingPage extends StatelessWidget {
                         }
                       },
                       title: Text(
-                        "Privacy Policy",
+                        "Maxfiylik siyosati",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       trailing: Icon(
@@ -439,7 +439,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: Text(
-                        "Terms and Conditions",
+                        "Foydalanish shartlari",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () async {
