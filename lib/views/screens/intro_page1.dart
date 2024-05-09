@@ -24,7 +24,7 @@ class FintroPage extends StatelessWidget {
             right: size.width * 0.15,
             bottom: 0,
             child: const Text(
-              'Motivate Your Moments',
+              'Har lahzangizni jonlantiring!',
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class FintroPage extends StatelessWidget {
             child: AnimatedTextKit(
               animatedTexts: [
                 TyperAnimatedText(
-                  "Motivate Your Moments. Transform each instant into inspiration, fueling your journey with motivation tailored just for you",
+                  "Har lahzangizni jonlantiring! Har bir lahzangizdan ilhomlaning, hayot yo'lingizni faqat siz uchun atalgan iqtiboslar bilan rivojlantiring!",
                   textStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class FintroPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Spark Motivation',
+                      'Motivatsiya uchquni',
                       style: TextStyle(
                           letterSpacing: 2,
                           fontWeight: FontWeight.w600,
