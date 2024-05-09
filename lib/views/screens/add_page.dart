@@ -11,7 +11,7 @@ class AddQuotePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Add Quote",
+          "Iqtibos qo'shish",
         ),
         leading: IconButton(
           onPressed: () {
@@ -39,7 +39,7 @@ class AddQuotePage extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                'Dreams are whispers that the heart hears when it listens.',
+                'Orzular - yurak tinglanganda keladigan shivirlar.',
                 style: TextStyle(
                     fontSize: 20,
                     color: Color(0xFF5E6C85),
@@ -60,7 +60,7 @@ class AddQuotePage extends StatelessWidget {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white.withOpacity(0.05),
-                    hintText: 'Add Your Quote',
+                    hintText: 'Iqtibos qo`shing',
                     hintStyle: TextStyle(
                         color: Colors.white.withOpacity(0.6),
                         fontSize: 14,
@@ -93,7 +93,7 @@ class AddQuotePage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Save',
+                        'Saqlash',
                         style: TextStyle(
                             letterSpacing: 2,
                             fontWeight: FontWeight.w600,
