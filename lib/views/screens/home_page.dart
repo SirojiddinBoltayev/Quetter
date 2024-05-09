@@ -262,7 +262,7 @@ class HomePage extends StatelessWidget {
                                                 context)
                                             .showSnackBar(SnackBar(
                                                 content: const Text(
-                                                  'Favorite added ❤️',
+                                                  'Sevimlilarga qo'shildi ❤️',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
