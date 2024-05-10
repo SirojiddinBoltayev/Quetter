@@ -16,7 +16,7 @@ class YourQuotes extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Sizning Iqtiboslaringiz",
+          "Sizning iqtiboslaringiz",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

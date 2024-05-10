@@ -16,7 +16,7 @@ class PastQuote extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Oxirgi iqtiboslar",
+          "Yaqinda ko`rilgan iqtiboslar",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

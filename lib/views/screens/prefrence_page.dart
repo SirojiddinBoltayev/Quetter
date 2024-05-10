@@ -19,7 +19,7 @@ class PrefPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Kontakt sozlamalari",
+          "Aloqa sozlamalari",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

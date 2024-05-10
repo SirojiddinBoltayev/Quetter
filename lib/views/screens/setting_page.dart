@@ -92,7 +92,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "O'z taklifingizni qo'shing",
+                        "Iqtibos qo\'shing",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -171,8 +171,12 @@ class SettingPage extends StatelessWidget {
                                                   right: 1,
                                                   bottom: 1,
                                                   child: Text(
-                                                    "+10 Tangalar".toUpperCase(),
-                                                    style: const TextStyle(color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
+                                                    "+10 Coins".toUpperCase(),
+                                                    style: const TextStyle(
+                                                        color: Colors.amber,
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ]),
@@ -230,8 +234,12 @@ class SettingPage extends StatelessWidget {
                                                   right: 1,
                                                   bottom: 1,
                                                   child: Text(
-                                                    "+10 Tangalar".toUpperCase(),
-                                                    style: const TextStyle(color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
+                                                    "+10 Coins".toUpperCase(),
+                                                    style: const TextStyle(
+                                                        color: Colors.amber,
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ]),
@@ -242,7 +250,7 @@ class SettingPage extends StatelessWidget {
                             });
                           },
                           title: const Text(
-                            "Tangalar ishlang",
+                            "Coin ishlash",
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           trailing: const Icon(
@@ -264,7 +272,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "O'tgan iqtiboslar",
+                        "Oxirgi iqtiboslar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -310,7 +318,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Sizning Iqtiboslaringiz",
+                        "Sizning iqtiboslaringiz",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
@@ -336,7 +344,7 @@ class SettingPage extends StatelessWidget {
                         Navigator.of(context).push(PageTransition(child: const DwonloadPage(), type: PageTransitionType.fade));
                       },
                       title: const Text(
-                        "Iqtiboslarni yuklab oling",
+                        "Iqtiboslar yuklash",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       trailing: const Icon(
@@ -354,8 +362,11 @@ class SettingPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 8.0, bottom: 8),
                 child: Text(
-                  'Boshqa',
-                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                  'Boshqalar',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
