@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                             'https://firebasestorage.googleapis.com/v0/b/qutter-eeb9f.appspot.com/o/${Uri.encodeComponent(background)}?alt=media',
                           ),
                           fit: BoxFit.cover)
-                      : DecorationImage(image: AssetImage('assets/images/background.png'), fit: BoxFit.cover)),
+                      : DecorationImage(image: AssetImage('assets/images/background_bird.png'), fit: BoxFit.cover)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -145,52 +145,52 @@ class _HomePageState extends State<HomePage> {
                           itemCount: jsonItem.length,
                           itemBuilder: (context, index, child) {
                             print(pixa.dominantColor);
-                            return jsonItem.isNotEmpty ?
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Image.asset(
-                                  'assets/images/qutter_logo.png',
-                                  height: 30,
-                                  color: pixa.textcolor,
-                                ),
-                                const Spacer(),
-
-                                /// # Start this
-                                /// # Start this
-                                /// # Start this
-                                /// # Start this
-                                /// # Start this
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 26),
-                                  child: Text(jsonItem[index]['text'],
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
+                            return jsonItem.isNotEmpty
+                                ? Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      Image.asset(
+                                        'assets/images/qutter_logo.png',
+                                        height: 30,
                                         color: pixa.textcolor,
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 12.0,
-                                  ),
-                                  child: Text(
-                                    '~${jsonItem[index]['author']}',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14, color: pixa.textcolor),
-                                  ),
-                                ),
-                                const Spacer(),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                              ],
-                            )
-                            : const Center(child: CircularProgressIndicator());
+                                      ),
+                                      const Spacer(),
+
+                                      /// # Start this
+                                      /// # Start this
+                                      /// # Start this
+                                      /// # Start this
+                                      /// # Start this
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 26),
+                                        child: Text(jsonItem[index]['text'],
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                              color: pixa.textcolor,
+                                            )),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 12.0,
+                                        ),
+                                        child: Text(
+                                          '~${jsonItem[index]['author']}',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14, color: pixa.textcolor),
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                    ],
+                                  )
+                                : const Center(child: CircularProgressIndicator());
                           },
                           options: CarouselOptions(
                             scrollDirection: Axis.vertical,
