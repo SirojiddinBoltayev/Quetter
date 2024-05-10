@@ -45,7 +45,7 @@ class TintroPage extends StatelessWidget {
                   AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
-                        'Donolik olamiga xush kelibsiz. Esingizda bo'lsin, har bir iqtibos yangi yo'l va yangi ilhom demakdir. Iqtibos ilovamizdagi sayohatingiz maroqli o'tsin!',
+                        'Donolik olamiga xush kelibsiz. Esingizda bo\'lsin, har bir iqtibos yangi yo\'l va yangi ilhom demakdir. Iqtibos ilovamizdagi sayohatingiz maroqli o\'tsin!',
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(
                           fontSize: 20,

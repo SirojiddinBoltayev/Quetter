@@ -22,42 +22,34 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Settings",
+          "Sozlamalar",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new_rounded,
-              color: Colors.white, size: 20),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 20),
         ),
       ),
       body: Container(
         height: size.height,
         width: size.width,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment(0, -1.0),
-              end: Alignment(0, 5),
-              colors: [
-                Color(0xFF273447),
-                Color(0xFFB5A69F),
-              ]),
+          gradient: LinearGradient(begin: Alignment(0, -1.0), end: Alignment(0, 5), colors: [
+            Color(0xFF273447),
+            Color(0xFFB5A69F),
+          ]),
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const Padding(
                 padding: EdgeInsets.only(left: 8.0, bottom: 8),
                 child: Text(
-                  'Your Quotes',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                  'Sizning Iqtiboslaringiz',
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
@@ -77,12 +69,11 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Content Preferences",
+                        "Kontent sozlamalari",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).push(PageTransition(
-                            child: PrefPage(), type: PageTransitionType.fade));
+                        Navigator.of(context).push(PageTransition(child: PrefPage(), type: PageTransitionType.fade));
                       },
                       trailing: const Icon(
                         Icons.arrow_forward_ios_rounded,
@@ -101,13 +92,11 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Add Your Own Quote",
+                        "O'z taklifingizni qo'shing",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).push(PageTransition(
-                            child: AddQuotePage(),
-                            type: PageTransitionType.fade));
+                        Navigator.of(context).push(PageTransition(child: AddQuotePage(), type: PageTransitionType.fade));
                       },
                       trailing: const Icon(
                         Icons.arrow_forward_ios_rounded,
@@ -130,8 +119,7 @@ class SettingPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onTap: () async {
-                            AdHelper.adHelper.rewardedAd.show(
-                                onUserEarnedReward: (ad, reward) async {
+                            AdHelper.adHelper.rewardedAd.show(onUserEarnedReward: (ad, reward) async {
                               if (coinsValue < 10) {
                                 await FbStoreHelper.fbStoreHelper
                                     .addCoins(
@@ -144,13 +132,10 @@ class SettingPage extends StatelessWidget {
                                       builder: (context) {
                                         return AlertDialog(
                                             title: Text(
-                                              'Congratulations'.toUpperCase(),
+                                              'Tabriklaymiz'.toUpperCase(),
                                               textAlign: TextAlign.center,
                                             ),
-                                            titleTextStyle: const TextStyle(
-                                                color: Colors.amber,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
+                                            titleTextStyle: const TextStyle(color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
                                             backgroundColor: Colors.white,
                                             content: SizedBox(
                                               height: 90,
@@ -186,12 +171,8 @@ class SettingPage extends StatelessWidget {
                                                   right: 1,
                                                   bottom: 1,
                                                   child: Text(
-                                                    "+10 Coins".toUpperCase(),
-                                                    style: const TextStyle(
-                                                        color: Colors.amber,
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.bold),
+                                                    "+10 Tangalar".toUpperCase(),
+                                                    style: const TextStyle(color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
                                                   ),
                                                 ),
                                               ]),
@@ -210,13 +191,10 @@ class SettingPage extends StatelessWidget {
                                       builder: (context) {
                                         return AlertDialog(
                                             title: Text(
-                                              'Congratulations'.toUpperCase(),
+                                              'Tabriklaymiz'.toUpperCase(),
                                               textAlign: TextAlign.center,
                                             ),
-                                            titleTextStyle: const TextStyle(
-                                                color: Colors.amber,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
+                                            titleTextStyle: const TextStyle(color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
                                             backgroundColor: Colors.white,
                                             content: SizedBox(
                                               height: 90,
@@ -252,12 +230,8 @@ class SettingPage extends StatelessWidget {
                                                   right: 1,
                                                   bottom: 1,
                                                   child: Text(
-                                                    "+10 Coins".toUpperCase(),
-                                                    style: const TextStyle(
-                                                        color: Colors.amber,
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.bold),
+                                                    "+10 Tangalar".toUpperCase(),
+                                                    style: const TextStyle(color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
                                                   ),
                                                 ),
                                               ]),
@@ -268,7 +242,7 @@ class SettingPage extends StatelessWidget {
                             });
                           },
                           title: const Text(
-                            "Earn Coins",
+                            "Tangalar ishlang",
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           trailing: const Icon(
@@ -290,12 +264,11 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Past Quotes",
+                        "O'tgan iqtiboslar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).push(PageTransition(
-                            child: PastQuote(), type: PageTransitionType.fade));
+                        Navigator.of(context).push(PageTransition(child: PastQuote(), type: PageTransitionType.fade));
                       },
                       trailing: const Icon(
                         Icons.arrow_forward_ios_rounded,
@@ -314,13 +287,11 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Favourites",
+                        "Sevimlilar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).push(PageTransition(
-                            child: FavoritesScreen(),
-                            type: PageTransitionType.fade));
+                        Navigator.of(context).push(PageTransition(child: FavoritesScreen(), type: PageTransitionType.fade));
                       },
                       trailing: const Icon(
                         Icons.arrow_forward_ios_rounded,
@@ -339,13 +310,11 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: const Text(
-                        "Your Quotes",
+                        "Sizning Iqtiboslaringiz",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).push(PageTransition(
-                            child: const YourQuotes(),
-                            type: PageTransitionType.fade));
+                        Navigator.of(context).push(PageTransition(child: YourQuotes(), type: PageTransitionType.fade));
                       },
                       trailing: const Icon(
                         Icons.arrow_forward_ios_rounded,
@@ -364,12 +333,10 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       onTap: () {
-                        Navigator.of(context).push(PageTransition(
-                            child: const DwonloadPage(),
-                            type: PageTransitionType.fade));
+                        Navigator.of(context).push(PageTransition(child: const DwonloadPage(), type: PageTransitionType.fade));
                       },
                       title: const Text(
-                        "Dwonload Quotes",
+                        "Iqtiboslarni yuklab oling",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       trailing: const Icon(
@@ -387,11 +354,8 @@ class SettingPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 8.0, bottom: 8),
                 child: Text(
-                  'Other',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                  'Boshqa',
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
@@ -410,8 +374,7 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       onTap: () async {
-                        const String url =
-                            'https://qutterprivacypolicy.blogspot.com/p/privacy-policy.html';
+                        const String url = 'https://qutterprivacypolicy.blogspot.com/p/privacy-policy.html';
                         if (await canLaunchUrl(Uri.parse(url))) {
                           await launchUrl(Uri.parse(url));
                         } else {
@@ -419,7 +382,7 @@ class SettingPage extends StatelessWidget {
                         }
                       },
                       title: Text(
-                        "Privacy Policy",
+                        "Maxfiylik siyosati",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       trailing: Icon(
@@ -439,12 +402,11 @@ class SettingPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                       title: Text(
-                        "Terms and Conditions",
+                        "Foydalanish shartlari",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       onTap: () async {
-                        const String url =
-                            'https://termsandconditionsqutter.blogspot.com/p/last-updated-10-1.html';
+                        const String url = 'https://termsandconditionsqutter.blogspot.com/p/last-updated-10-1.html';
                         if (await canLaunchUrl(Uri.parse(url))) {
                           await launchUrl(Uri.parse(url));
                         } else {

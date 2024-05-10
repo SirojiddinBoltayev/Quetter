@@ -4,7 +4,6 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:quetter/helper/fb_auth_helper.dart';
 import 'package:quetter/views/screens/intro_page3.dart';
-
 import '../../controller/user_controller.dart';
 
 class SIntroPage extends StatelessWidget {
@@ -23,13 +22,10 @@ class SIntroPage extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment(0, -1.0),
-                end: Alignment(0, 5),
-                colors: [
-              Color(0xFF273447),
-              Color(0xFFB5A69F),
-            ])),
+            gradient: LinearGradient(begin: Alignment(0, -1.0), end: Alignment(0, 5), colors: [
+          Color(0xFF273447),
+          Color(0xFFB5A69F),
+        ])),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
@@ -42,16 +38,13 @@ class SIntroPage extends StatelessWidget {
                 ),
                 SizedBox(height: size.height * 0.060),
                 const Text(
-                  'Navigate Your Narrative What Shall We Call You?',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24),
+                  'Hikoyangizni boshqaring Biz sizni nima deb ataymiz?',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: size.height * 0.040),
                 Text(
-                  'Hikoyalaringizni raqamli ko'rinishga o'tkazing: har bir o'zgarishingiz, har bir iqtibosingiz hayot yo'lingizni chizishda yordam beradi. Ushbu virtual sayohatda, qaysi nomni muhrlab yozamiz, sizning raqamli olamingizda qaysi bobni ochamiz?',
+                  'Hikoyalaringizni raqamli ko\'rinishga o\'tkazing: har bir o\'zgarishingiz, har bir iqtibosingiz hayot yo\'lingizni chizishda yordam beradi. Ushbu virtual sayohatda, qaysi nomni muhrlab yozamiz, sizning raqamli olamingizda qaysi bobni ochamiz?',
                   style: TextStyle(
                     color: Colors.grey.withOpacity(0.5),
                     fontWeight: FontWeight.bold,
@@ -72,20 +65,12 @@ class SIntroPage extends StatelessWidget {
                           controller: nameController,
                           textInputAction: TextInputAction.next,
                           keyboardType: TextInputType.name,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              letterSpacing: 0.5,
-                              fontSize: 18),
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400, letterSpacing: 0.5, fontSize: 18),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white.withOpacity(0.05),
                             hintText: 'Name',
-                            hintStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.5),
+                            hintStyle: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: 0.5),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               borderSide: BorderSide.none,
@@ -101,20 +86,12 @@ class SIntroPage extends StatelessWidget {
                           controller: emailController,
                           textInputAction: TextInputAction.next,
                           keyboardType: TextInputType.emailAddress,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              letterSpacing: 0.5,
-                              fontSize: 18),
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400, letterSpacing: 0.5, fontSize: 18),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white.withOpacity(0.05),
                             hintText: 'Email',
-                            hintStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.5),
+                            hintStyle: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: 0.5),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               borderSide: BorderSide.none,
@@ -131,25 +108,15 @@ class SIntroPage extends StatelessWidget {
                           obscureText: !pro.isPasswordVisible,
                           textInputAction: TextInputAction.next,
                           keyboardType: TextInputType.visiblePassword,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              letterSpacing: 0.5,
-                              fontSize: 18),
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400, letterSpacing: 0.5, fontSize: 18),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white.withOpacity(0.05),
                             hintText: 'Password',
-                            hintStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.5),
+                            hintStyle: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: 0.5),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                pro.isPasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
+                                pro.isPasswordVisible ? Icons.visibility : Icons.visibility_off,
                                 color: Colors.white,
                               ),
                               onPressed: () {
@@ -168,44 +135,42 @@ class SIntroPage extends StatelessWidget {
                 }),
                 SizedBox(height: size.height * 0.050),
                 Visibility(
-                  visible: nameController.text.isNotEmpty &&
-                      emailController.text.isNotEmpty &&
-                      passwordController.text.isNotEmpty,
+                  visible: nameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty,
                   child: GestureDetector(
                     onTap: () async {
-                      await FBAuthHelper.fbAuthHelper
-                          .registerWithEmailAndPassword(emailController.text,
-                              passwordController.text, nameController.text);
-                      await FBAuthHelper.fbAuthHelper
-                          .signInWithEmailAndPassword(
+                      var checkRegister =
+                          await FBAuthHelper.fbAuthHelper.registerWithEmailAndPassword(emailController.text, passwordController.text, nameController.text);
+                      var checkLogin = await FBAuthHelper.fbAuthHelper.signInWithEmailAndPassword(
                         nameController.text,
                         emailController.text,
                         passwordController.text,
                       );
-                      Navigator.of(context).pushReplacement(PageTransition(
-                        child: const TintroPage(),
-                        childCurrent: this,
-                        type: PageTransitionType.rightToLeftJoined,
-                        duration: const Duration(seconds: 1),
-                      ));
+                      if (checkRegister != null || checkLogin != null) {
+                        Navigator.of(context).pushReplacement(PageTransition(
+                          child: const TintroPage(),
+                          childCurrent: this,
+                          type: PageTransitionType.rightToLeftJoined,
+                          duration: const Duration(seconds: 1),
+                        ));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Email yoki Parolni tekshirib qaytadan urinibko\'ring'),
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       width: size.width * 0.5,
                       height: size.height * 0.05,
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(14)),
+                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(14)),
                       child: const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             'Davom qilish',
-                            style: TextStyle(
-                                letterSpacing: 2,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF36455A),
-                                fontSize: 18),
+                            style: TextStyle(letterSpacing: 2, fontWeight: FontWeight.w600, color: Color(0xFF36455A), fontSize: 18),
                           ),
                         ],
                       ),
@@ -225,10 +190,7 @@ class SIntroPage extends StatelessWidget {
                       padding: EdgeInsets.all(10),
                       child: Text(
                         ' Yoki ',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
@@ -242,8 +204,7 @@ class SIntroPage extends StatelessWidget {
                 GestureDetector(
                   onTap: () async {
                     await FBAuthHelper.fbAuthHelper.signInWithGoogle();
-                    Logger().t(FBAuthHelper
-                        .fbAuthHelper.auth.currentUser?.displayName);
+                    Logger().t(FBAuthHelper.fbAuthHelper.auth.currentUser?.displayName);
                     Navigator.of(context).pushReplacement(PageTransition(
                       child: const TintroPage(),
                       childCurrent: this,
@@ -255,9 +216,7 @@ class SIntroPage extends StatelessWidget {
                     width: size.width * 0.54,
                     height: size.height * 0.05,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(14)),
+                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(14)),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -270,11 +229,7 @@ class SIntroPage extends StatelessWidget {
                             SizedBox(height: size.height * 0.010),
                             const Text(
                               'Google orqali kiring',
-                              style: TextStyle(
-                                  letterSpacing: 2,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF36455A),
-                                  fontSize: 12),
+                              style: TextStyle(letterSpacing: 2, fontWeight: FontWeight.bold, color: Color(0xFF36455A), fontSize: 12),
                             ),
                           ],
                         ),

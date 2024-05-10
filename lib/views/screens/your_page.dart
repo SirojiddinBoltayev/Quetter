@@ -16,15 +16,14 @@ class YourQuotes extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Your Quotes",
+          "Sizning Iqtiboslaringiz",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new_rounded,
-              color: Colors.white, size: 20),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 20),
         ),
         backgroundColor: const Color(0xFF273447),
       ),
@@ -32,13 +31,10 @@ class YourQuotes extends StatelessWidget {
         height: size.height,
         width: size.width,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment(0, -1.0),
-              end: Alignment(0, 5),
-              colors: [
-                Color(0xFF273447),
-                Color(0xFFB5A69F),
-              ]),
+          gradient: LinearGradient(begin: Alignment(0, -1.0), end: Alignment(0, 5), colors: [
+            Color(0xFF273447),
+            Color(0xFFB5A69F),
+          ]),
         ),
         child: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -47,12 +43,9 @@ class YourQuotes extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   QuerySnapshot<Map<String, dynamic>>? data = snapshot.data;
-                  List<QueryDocumentSnapshot<Map<String, dynamic>>> myData =
-                      data?.docs ?? [];
+                  List<QueryDocumentSnapshot<Map<String, dynamic>>> myData = data?.docs ?? [];
 
-                  List<YourModal> quotes = myData
-                      .map((e) => YourModal.fromMap(quote: e.data()))
-                      .toList();
+                  List<YourModal> quotes = myData.map((e) => YourModal.fromMap(quote: e.data())).toList();
 
                   return ListView.builder(
                     itemCount: quotes.length,
@@ -64,13 +57,10 @@ class YourQuotes extends StatelessWidget {
                           height: size.height * 0.25,
                           width: size.width,
                           decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: const Alignment(-1, 0.0),
-                                end: Alignment(0, -5 + index * 0.3),
-                                colors: const [
-                                  Color(0xFF536C8F),
-                                  Color(0xFFAB806B),
-                                ]),
+                            gradient: LinearGradient(begin: const Alignment(-1, 0.0), end: Alignment(0, -5 + index * 0.3), colors: const [
+                              Color(0xFF536C8F),
+                              Color(0xFFAB806B),
+                            ]),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -85,10 +75,7 @@ class YourQuotes extends StatelessWidget {
                               Text(
                                 quotes[index].quote ?? "",
                                 textAlign: TextAlign.left,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               const Divider(
                                 color: Color(0xFF273447),
@@ -115,8 +102,7 @@ class YourQuotes extends StatelessWidget {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    String t =
-                                        '${quotes[index].quote ?? ""} \n by\n ~ ${quotes[index].author ?? "" ?? ''}';
+                                    String t = '${quotes[index].quote ?? ""} \n by\n ~ ${quotes[index].author ?? "" ?? ''}';
 
                                     ShareExtend.share(
                                       t,

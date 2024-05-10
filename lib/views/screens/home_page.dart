@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -24,12 +25,36 @@ import '../modal/quate_modal.dart';
 import 'background_page.dart';
 import 'favorite_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   QuoteModal quoteModal = QuoteModal.init();
+
   FlutterTts flutterTts = FlutterTts();
+
   ScreenshotController screenshotController = ScreenshotController();
+
+  List jsonItem = [];
+
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('assets/uz.json');
+    final data = await json.decode(response);
+    setState(() {
+      jsonItem = data;
+      debugPrint('MY DATA : ${jsonItem}');
+    });
+  }
+
+  @override
+  void initState() {
+    readJson();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +65,7 @@ class HomePage extends StatelessWidget {
           stream: FBSHelper.fbsHelper.fetchBackground(),
           builder: (context, snap) {
             String background = snap.data?.data()?['images'] ?? '';
-            Provider.of<PixaController>(context, listen: false)
-                .updateDominantColor(
+            Provider.of<PixaController>(context, listen: false).updateDominantColor(
               'https://firebasestorage.googleapis.com/v0/b/qutter-eeb9f.appspot.com/o/${Uri.encodeComponent(background)}?alt=media',
             );
             return Container(
@@ -55,15 +79,12 @@ class HomePage extends StatelessWidget {
                             'https://firebasestorage.googleapis.com/v0/b/qutter-eeb9f.appspot.com/o/${Uri.encodeComponent(background)}?alt=media',
                           ),
                           fit: BoxFit.cover)
-                      : DecorationImage(
-                          image: AssetImage('assets/images/background.png'),
-                          fit: BoxFit.cover)),
+                      : DecorationImage(image: AssetImage('assets/images/background.png'), fit: BoxFit.cover)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: Consumer<PixaController>(
-                        builder: (context, pro, child) {
+                    child: Consumer<PixaController>(builder: (context, pro, child) {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -72,11 +93,7 @@ class HomePage extends StatelessWidget {
                             padding: const EdgeInsets.all(16),
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const BackgroundPage()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const BackgroundPage()));
                               },
                               child: Container(
                                 width: size.width * 0.14,
@@ -98,11 +115,7 @@ class HomePage extends StatelessWidget {
                             padding: const EdgeInsets.all(16),
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SettingPage()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingPage()));
                               },
                               child: Container(
                                 width: size.width * 0.14,
@@ -127,58 +140,57 @@ class HomePage extends StatelessWidget {
                     flex: 4,
                     child: Container(
                       height: size.height,
-                      child: Consumer3<QuoteCntroller, IndexController,
-                              PixaController>(
-                          builder: (context, pro, ind, pixa, child) {
+                      child: Consumer3<QuoteCntroller, IndexController, PixaController>(builder: (context, pro, ind, pixa, child) {
                         return CarouselSlider.builder(
-                          itemCount: pro.quotes.length,
+                          itemCount: jsonItem.length,
                           itemBuilder: (context, index, child) {
                             print(pixa.dominantColor);
-                            return pro.quotes.isNotEmpty
-                                ? Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(
-                                        height: 30,
-                                      ),
-                                      Image.asset(
-                                        'assets/images/qutter_logo.png',
-                                        height: 30,
+                            return jsonItem.isNotEmpty ?
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                Image.asset(
+                                  'assets/images/qutter_logo.png',
+                                  height: 30,
+                                  color: pixa.textcolor,
+                                ),
+                                const Spacer(),
+
+                                /// # Start this
+                                /// # Start this
+                                /// # Start this
+                                /// # Start this
+                                /// # Start this
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 26),
+                                  child: Text(jsonItem[index]['text'],
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
                                         color: pixa.textcolor,
-                                      ),
-                                      const Spacer(),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 26),
-                                        child: Text(pro.quotes[index]['text'],
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
-                                              color: pixa.textcolor,
-                                            )),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 12.0,
-                                        ),
-                                        child: Text(
-                                          '~${pro.quotes[index]['author']}',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: pixa.textcolor),
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                    ],
-                                  )
-                                : const Center(
-                                    child: CircularProgressIndicator());
+                                      )),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 12.0,
+                                  ),
+                                  child: Text(
+                                    '~${jsonItem[index]['author']}',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14, color: pixa.textcolor),
+                                  ),
+                                ),
+                                const Spacer(),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            )
+                            : const Center(child: CircularProgressIndicator());
                           },
                           options: CarouselOptions(
                             scrollDirection: Axis.vertical,
@@ -187,13 +199,12 @@ class HomePage extends StatelessWidget {
                             enlargeCenterPage: true,
                             onScrolled: (value) {},
                             onPageChanged: (index, value) async {
-                              quoteModal.id = pro.quotes[index]['_id'];
-                              quoteModal.quote = pro.quotes[index]['text'];
-                              quoteModal.author = pro.quotes[index]['author'];
-                              quoteModal.category = pro.quotes[index]['tags'];
+                              quoteModal.id = jsonItem[index]['_id'];
+                              quoteModal.quote = jsonItem[index]['text'];
+                              quoteModal.author = jsonItem[index]['author'];
+                              quoteModal.category = jsonItem[index]['tags'];
                               quoteModal.image = background;
-                              await FbStoreHelper.fbStoreHelper
-                                  .addHistory(quote: quoteModal);
+                              await FbStoreHelper.fbStoreHelper.addHistory(quote: quoteModal);
                               ind.setIndex(val: index);
                               Logger().i(ind.index);
                             },
@@ -206,24 +217,19 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       alignment: Alignment.topCenter,
                       padding: const EdgeInsets.all(16),
-                      child: Consumer2<QuoteCntroller, IndexController>(
-                          builder: (context, pro, ind, child) {
+                      child: Consumer2<QuoteCntroller, IndexController>(builder: (context, pro, ind, child) {
                         {
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               IconButton(
                                 onPressed: () async {
-                                  quoteModal.id = pro.quotes[ind.index]['_id'];
-                                  quoteModal.quote =
-                                      pro.quotes[ind.index]['text'];
-                                  quoteModal.author =
-                                      pro.quotes[ind.index]['author'];
-                                  quoteModal.category =
-                                      pro.quotes[ind.index]['tags'];
+                                  quoteModal.id = jsonItem[ind.index]['_id'];
+                                  quoteModal.quote = jsonItem[ind.index]['text'];
+                                  quoteModal.author = jsonItem[ind.index]['author'];
+                                  quoteModal.category = jsonItem[ind.index]['tags'];
 
-                                  await DBHelper.dbHelper
-                                      .insertDwonload(quote: quoteModal);
+                                  await DBHelper.dbHelper.insertDwonload(quote: quoteModal);
                                   await DBHelper.dbHelper.getDwonload();
                                 },
                                 icon: const Icon(
@@ -236,8 +242,7 @@ class HomePage extends StatelessWidget {
                                 onPressed: () async {
                                   await flutterTts.setLanguage('en-US');
                                   await flutterTts.setPitch(1.0);
-                                  await flutterTts
-                                      .speak(pro.quotes[ind.index]['text']);
+                                  await flutterTts.speak(jsonItem[ind.index]['text']);
                                 },
                                 icon: const Icon(
                                   FluentIcons.phone_speaker_24_regular,
@@ -247,50 +252,33 @@ class HomePage extends StatelessWidget {
                               ),
                               IconButton(
                                   onPressed: () async {
-                                    quoteModal.id =
-                                        pro.quotes[ind.index]['_id'];
-                                    quoteModal.quote =
-                                        pro.quotes[ind.index]['text'];
-                                    quoteModal.author =
-                                        pro.quotes[ind.index]['author'];
-                                    quoteModal.category =
-                                        pro.quotes[ind.index]['tags'];
+                                    quoteModal.id = jsonItem[ind.index]['_id'];
+                                    quoteModal.quote = jsonItem[ind.index]['text'];
+                                    quoteModal.author = jsonItem[ind.index]['author'];
+                                    quoteModal.category = jsonItem[ind.index]['tags'];
                                     quoteModal.image = background;
                                     await FbStoreHelper.fbStoreHelper
                                         .addFavorite(quote: quoteModal)
-                                        .then((value) => ScaffoldMessenger.of(
-                                                context)
-                                            .showSnackBar(SnackBar(
-                                                content: const Text(
-                                                  'Sevimlilarga qo'shildi ❤️',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                dismissDirection:
-                                                    DismissDirection.startToEnd,
-                                                elevation: 2,
-                                                behavior:
-                                                    SnackBarBehavior.floating,
-                                                duration:
-                                                    const Duration(seconds: 1),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(24),
-                                                ),
-                                                width: size.width * 0.8,
-                                                backgroundColor: Colors.black,
-                                                action: SnackBarAction(
-                                                  label: 'view',
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(
-                                                        PageTransition(
-                                                            child:
-                                                                FavoritesScreen(),
-                                                            type:
-                                                                PageTransitionType
-                                                                    .fade));
-                                                  },
-                                                ))));
+                                        .then((value) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                            content: const Text(
+                                              'Sevimlilarga qo\'shildi \❤️',
+                                              style: TextStyle(color: Colors.white),
+                                            ),
+                                            dismissDirection: DismissDirection.startToEnd,
+                                            elevation: 2,
+                                            behavior: SnackBarBehavior.floating,
+                                            duration: const Duration(seconds: 1),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(24),
+                                            ),
+                                            width: size.width * 0.8,
+                                            backgroundColor: Colors.black,
+                                            action: SnackBarAction(
+                                              label: 'view',
+                                              onPressed: () {
+                                                Navigator.of(context).push(PageTransition(child: FavoritesScreen(), type: PageTransitionType.fade));
+                                              },
+                                            ))));
                                   },
                                   icon: const Icon(
                                     FluentIcons.heart_28_regular,
@@ -299,7 +287,7 @@ class HomePage extends StatelessWidget {
                                   )),
                               IconButton(
                                 onPressed: () {
-                                  String t = pro.quotes[ind.index]['text'];
+                                  String t = jsonItem[ind.index]['text'];
 
                                   Clipboard.setData(ClipboardData(text: t));
                                 },
@@ -317,12 +305,7 @@ class HomePage extends StatelessWidget {
                                     height: size.height * 0.245,
                                     width: size.width * 0.5,
                                     decoration: BoxDecoration(
-                                      color: Provider.of<PixaController>(
-                                                  context,
-                                                  listen: false)
-                                              .dominantColor
-                                              ?.withOpacity(0.5) ??
-                                          const Color(0xFF273447),
+                                      color: Provider.of<PixaController>(context, listen: false).dominantColor?.withOpacity(0.5) ?? const Color(0xFF273447),
                                       image: DecorationImage(
                                           image: NetworkImage(
                                             'https://firebasestorage.googleapis.com/v0/b/qutter-eeb9f.appspot.com/o/${Uri.encodeComponent(background)}?alt=media',
@@ -346,7 +329,7 @@ class HomePage extends StatelessWidget {
                                           child: Container(
                                             padding: const EdgeInsets.all(24),
                                             child: Text(
-                                              pro.quotes[ind.index]['text'],
+                                              jsonItem[ind.index]['text'],
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.w500,
@@ -361,7 +344,7 @@ class HomePage extends StatelessWidget {
                                           right: 0,
                                           child: Container(
                                             child: Text(
-                                              pro.quotes[ind.index]['author'],
+                                              jsonItem[ind.index]['author'],
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
                                                 fontSize: 7,
@@ -376,10 +359,8 @@ class HomePage extends StatelessWidget {
                                   ))
                                       .then((capturedImage) async {
                                     print(capturedImage);
-                                    final tempDir =
-                                        await getTemporaryDirectory();
-                                    final file = File(
-                                        '${tempDir.path}/captured_image.png');
+                                    final tempDir = await getTemporaryDirectory();
+                                    final file = File('${tempDir.path}/captured_image.png');
                                     await file.writeAsBytes(capturedImage);
                                     await ShareExtend.share(file.path, "image");
                                   });
@@ -436,7 +417,7 @@ class HomePage extends StatelessWidget {
 //     .symmetric(
 // horizontal: 26),
 // child: Text(
-// pro.quotes[ind.index]
+// jsonItem[ind.index]
 // ['text'],
 // textAlign:
 // TextAlign.center,

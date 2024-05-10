@@ -16,7 +16,7 @@ class PastQuote extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Recent Quotes",
+          "Oxirgi iqtiboslar",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -168,7 +168,7 @@ class PastQuote extends StatelessWidget {
                                                         .of(context)
                                                     .showSnackBar(SnackBar(
                                                         content: const Text(
-                                                          'Favorite added ❤️',
+                                                          'Sevimli qo\'shildi ❤️',
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white),
